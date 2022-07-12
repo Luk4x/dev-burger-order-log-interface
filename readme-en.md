@@ -21,15 +21,15 @@
 </p>
 <br>
 
-## Sobre
+## About
 
-Esse projeto é uma Interface Mobile-First que realiza o cadastro de pedidos de uma hamburgueria, consumindo a [API](https://github.com/Luk4x/dev-burger-order-log-API) que construí.<br>
-Ele é composto por 2 páginas:
+This project is an Mobile-First Interface that performs the registration of orders for a hamburger shop, consuming the [API](https://github.com/Luk4x/dev-burger-order-log-API) that I built.<br>
+It consists in 2 pages:
 
--   A primeira realiza o cadastro dos pedidos validados pelas verificações.
--   A segunda lista os pedidos já cadastrados.
+-   The first performs the registration of orders validated by the checks.
+-   The second list the orders already registered.
 
-## Tecnologias utilizadas
+## Technologies used
 
 -   [ReactJS](https://pt-br.reactjs.org)
 -   [React Router](https://reactrouter.com/docs/en/v6/getting-started/overview)
@@ -37,27 +37,27 @@ Ele é composto por 2 páginas:
 -   [React-Icons](https://react-icons.github.io/react-icons/)
 -   [Axios](https://axios-http.com/docs/intro)
 
-## Como usar
+## How to use
 
-Para clonar e executar este projeto, você precisará do [Git](https://git-scm.com/), [Node.js v16.13.2](https://nodejs.org/en/) ou superior e [Yarn](https://yarnpkg.com/) instalados em seu computador.<br>No terminal:
+To clone and run this application, you'll need [Git](https://git-scm.com/), [Node.js v16.13.2](https://nodejs.org/en/) or higher and [Yarn](https://yarnpkg.com/) installed on your computer.<br>In terminal:
 
 ```bash
-# Clone esse repositório:
+# Clone this repository:
 $ git clone https://github.com/Luk4x/dev-burger-order-log-interface.git
 
-# Entre no repositório:
+# Go into the repository:
 $ cd dev-burger-order-log-interface
 
-# Instalar dependências
+# Install dependencies:
 $ yarn install
 
-# Executar o projeto
+# Run the project:
 $ yarn dev
 
-# O servidor irá iniciar em http://localhost:3000/.
+# The server will start at http://localhost:3000/.
 ```
 
-## Contributor Contact
+## Contato dos Contribuintes
 
 <table>
   <tr>
