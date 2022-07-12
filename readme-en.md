@@ -17,7 +17,8 @@
 # CodeBurger Interface
 
 <p align="center">
-  <video src="">
+  <!-- <video src=""> -->
+  <img src="https://user-images.githubusercontent.com/86276393/178603195-36a116d4-008c-4c27-8f21-127f376c1944.png" alt="project preview"/>
 </p>
 <br>
 
