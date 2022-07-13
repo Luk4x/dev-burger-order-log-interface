@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
 export const Image = styled.img`
-    height: 40vh;
+    width: 100%;
+    max-width: 500px;
 `;
