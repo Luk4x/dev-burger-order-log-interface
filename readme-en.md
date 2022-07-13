@@ -14,7 +14,7 @@
 </table>
 <br>
 
-# CodeBurger Interface
+# CodeBurger V1 Interface
 
 <p align="center">
   <!-- <video src=""> -->
