@@ -7,6 +7,6 @@ export default createGlobalStyle`
         outline: none;
         border: none;
         box-sizing: border-box;
-        font-family: 'KoHo', sans-serif;
+        font-family: 'Roboto', sans-serif;
     }
 `;

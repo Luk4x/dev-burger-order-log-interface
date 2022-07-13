@@ -4,7 +4,7 @@ import MainContainer from '../../components/MainContainer';
 import Image from '../../components/Image';
 import Title from '../../components/Title';
 import Button from '../../components/Button';
-
+import { AiFillCaretRight } from 'react-icons/ai';
 const Home = () => {
     return (
         <MainContainer>
@@ -13,13 +13,16 @@ const Home = () => {
                 <Title>Faça seu pedido!</Title>
                 <div>
                     <P>Pedido</P>
-                    <Input placeholder="1 Coca-Cola, 1-X Salada" />
+                    <Input placeholder="1 Coca-Cola, 1 X-Salada" />
                 </div>
                 <div>
                     <P>Nome do Cliente</P>
                     <Input placeholder="Lucas" />
                 </div>
-                <Button>Pedir</Button>
+                <Button>
+                    <p>Pedir</p>
+                    <AiFillCaretRight />
+                </Button>
             </Section>
         </MainContainer>
     );

@@ -4,6 +4,7 @@ import MainContainer from '../../components/MainContainer';
 import Image from '../../components/Image';
 import Title from '../../components/Title';
 import Button from '../../components/Button';
+import { AiFillCaretLeft } from 'react-icons/ai';
 
 const Orders = () => {
     return (
@@ -12,10 +13,13 @@ const Orders = () => {
             <Section>
                 <Title>Pedidos</Title>
                 <OrdersList>
-                    <Order></Order>
+                    <Order>Order</Order>
                 </OrdersList>
+                <Button btn2={true}>
+                    <p>Voltar</p>
+                    <AiFillCaretLeft />
+                </Button>
             </Section>
-            <Button>Voltar</Button>
         </MainContainer>
     );
 };

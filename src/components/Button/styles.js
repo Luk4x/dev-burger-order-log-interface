@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-    background: #d93856;
+    background: ${props => (props.btn2 ? '#f14a3d' : '#d93856')};
     width: 100%;
     border-radius: 3px;
     height: 56px;
@@ -10,4 +10,20 @@ export const Button = styled.button`
     font-weight: 300;
     font-size: 20px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        transform: translateY(3px);
+        opacity: 0.95;
+    }
+
+    ${props =>
+        props.btn2 &&
+        `
+        flex-direction: row-reverse;
+    `}
 `;

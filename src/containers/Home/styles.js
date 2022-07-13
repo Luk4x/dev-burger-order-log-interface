@@ -16,8 +16,7 @@ export const Section = styled.section`
 
 export const P = styled.p`
     color: whitesmoke;
-    font-size: 17.5px;
-    font-weight: 500;
+    font-size: 17px;
     margin-left: 10px;
     margin-bottom: 2px;
 `;
@@ -29,5 +28,5 @@ export const Input = styled.input`
     color: lightgray;
     width: 100%;
     height: 46px;
-    font-size: 16.5px;
+    font-size: 16px;
 `;
