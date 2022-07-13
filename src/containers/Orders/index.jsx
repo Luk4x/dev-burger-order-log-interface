@@ -10,10 +10,12 @@ const Orders = () => {
         <MainContainer>
             <Image img2={true} alt="CodeBurger Package" />
             <Section>
+                <Title>Pedidos</Title>
                 <OrdersList>
                     <Order></Order>
                 </OrdersList>
             </Section>
+            <Button>Voltar</Button>
         </MainContainer>
     );
 };
