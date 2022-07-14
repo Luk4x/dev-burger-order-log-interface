@@ -21,4 +21,5 @@ export const Order = styled.li`
     padding: 10px;
     border-radius: 10px;
     color: lightgray;
+    border: 2px solid #222;
 `;

@@ -29,4 +29,14 @@ export const Input = styled.input`
     width: 100%;
     height: 46px;
     font-size: 16px;
+    transition: all 0.2s ease-in-out;
+    border: 2px solid #222;
+
+    &:hover,
+    &:focus {
+        transform: translateY(1.5px);
+    }
+    &::placeholder {
+        font-style: italic;
+    }
 `;
