@@ -13,6 +13,11 @@ export const Section = styled.section`
 export const OrdersList = styled.ul`
     list-style-type: none;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 `;
 
 export const Order = styled.li`
@@ -22,4 +27,44 @@ export const Order = styled.li`
     border-radius: 10px;
     color: lightgray;
     border: 2px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        width: 100%;
+
+        h2 {
+            color: #eeeeee;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 300;
+            margin-top: 15px;
+            margin-right: 10px;
+        }
+
+        b {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            color: green;
+            font-size: 14.5px;
+
+            span {
+                font-weight: 400;
+            }
+        }
+
+        p {
+            color: gray;
+            font-size: 15px;
+            font-weight: 300;
+            font-style: italic;
+        }
+    }
 `;
