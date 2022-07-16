@@ -6,10 +6,12 @@ import Title from '../../components/Title';
 import Button from '../../components/Button';
 import { AiFillCaretRight } from 'react-icons/ai';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const order = useRef();
     const client = useRef();
+    const navigate = useNavigate();
 
     const verifyOrder = inputOrder => {
         if (inputOrder) return true;
@@ -35,7 +37,7 @@ const Home = () => {
             const response = await axios.post('http://localhost:3001/order', { order, clienteName, price: Math.floor(Math.random() * (100 - 10) + 10) });
 
             if (response.status === 201) {
-                // next page
+                navigate('/orders');
             }
         }
     };

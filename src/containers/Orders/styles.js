@@ -44,8 +44,7 @@ export const Order = styled.li`
             text-align: center;
             font-size: 16px;
             font-weight: 300;
-            margin-top: 15px;
-            margin-right: 10px;
+            margin: 20px 10px 5px 0px;
         }
 
         b {

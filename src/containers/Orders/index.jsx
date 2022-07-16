@@ -6,9 +6,11 @@ import Title from '../../components/Title';
 import Button from '../../components/Button';
 import { AiFillCaretLeft, AiOutlineDelete } from 'react-icons/ai';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         (async () => {
@@ -38,7 +40,7 @@ const Orders = () => {
                         );
                     })}
                 </OrdersList>
-                <Button btn2={true}>
+                <Button btn2={true} onClick={() => navigate('/')}>
                     <p>Voltar</p>
                     <AiFillCaretLeft />
                 </Button>
