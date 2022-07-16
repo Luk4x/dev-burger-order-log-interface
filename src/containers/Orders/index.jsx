@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 import { Section, OrdersList, Order } from './styles';
 import MainContainer from '../../components/MainContainer';
 import Image from '../../components/Image';
 import Title from '../../components/Title';
 import Button from '../../components/Button';
-import { AiFillCaretLeft, AiOutlineDelete } from 'react-icons/ai';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import UseAnimations from 'react-useanimations';
+import arrowDown from 'react-useanimations/lib/arrowDown';
+import archive from 'react-useanimations/lib/archive';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
@@ -18,6 +21,13 @@ const Orders = () => {
             setOrders(ordersData);
         })();
     }, []);
+
+    const deleteOrder = async id => {
+        await axios.delete(`http://localhost:3001/order/${id}`);
+
+        const newOrders = orders.filter(order => order.id !== id);
+        setOrders(newOrders);
+    };
 
     return (
         <MainContainer>
@@ -35,14 +45,14 @@ const Orders = () => {
                                         R$ <span>{order.price}</span>
                                     </b>
                                 </div>
-                                <AiOutlineDelete style={{ fontSize: '25px', color: '#d93856', cursor: 'pointer' }} />
+                                <UseAnimations animation={archive} size={56} wrapperStyle={{ cursor: 'pointer', position: 'absolute', top: '-30px', right: '-10px' }} strokeColor="#f14a3d" onClick={() => deleteOrder(order.id)} />
                             </Order>
                         );
                     })}
                 </OrdersList>
                 <Button btn2={true} onClick={() => navigate('/')}>
                     <p>Voltar</p>
-                    <AiFillCaretLeft />
+                    <UseAnimations animation={arrowDown} size={30} wrapperStyle={{ transform: 'rotate(90deg)' }} strokeColor="#eeeeee" />
                 </Button>
             </Section>
         </MainContainer>

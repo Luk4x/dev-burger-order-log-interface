@@ -1,12 +1,14 @@
 import React, { useRef } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 import { Section, P, Input } from './styles';
 import MainContainer from '../../components/MainContainer';
 import Image from '../../components/Image';
 import Title from '../../components/Title';
 import Button from '../../components/Button';
-import { AiFillCaretRight } from 'react-icons/ai';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import UseAnimations from 'react-useanimations';
+import arrowDown from 'react-useanimations/lib/arrowDown';
 
 const Home = () => {
     const order = useRef();
@@ -14,7 +16,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     const verifyOrder = inputOrder => {
-        if (inputOrder) return true;
+        if (inputOrder.length > 4) return true;
         else {
             order.current.style.backgroundColor = 'rgba(255, 110, 110, 0.25)';
             return false;
@@ -22,7 +24,7 @@ const Home = () => {
     };
 
     const verifyClient = inputClient => {
-        if (inputClient) return true;
+        if (inputClient.length > 2 && isNaN(inputClient)) return true;
         else {
             client.current.style.backgroundColor = 'rgba(255, 110, 110, 0.25)';
             return false;
@@ -69,7 +71,7 @@ const Home = () => {
                 </div>
                 <Button onClick={() => orderRecord(order, client)}>
                     <p>Pedir</p>
-                    <AiFillCaretRight />
+                    <UseAnimations animation={arrowDown} size={30} wrapperStyle={{ transform: 'rotate(-90deg)' }} strokeColor="#eeeeee" />
                 </Button>
             </Section>
         </MainContainer>

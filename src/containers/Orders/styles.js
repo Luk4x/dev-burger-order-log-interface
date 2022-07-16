@@ -31,6 +31,7 @@ export const Order = styled.li`
     align-items: center;
     justify-content: space-between;
     position: relative;
+    overflow: hidden;
 
     div {
         display: flex;
@@ -42,15 +43,15 @@ export const Order = styled.li`
         h2 {
             color: #eeeeee;
             text-align: center;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 300;
-            margin: 20px 10px 5px 0px;
+            margin: 21px 10px 5px 0px;
         }
 
         b {
             position: absolute;
-            top: 5px;
-            left: 5px;
+            top: 7px;
+            left: 7px;
             color: green;
             font-size: 14.5px;
 
@@ -61,7 +62,7 @@ export const Order = styled.li`
 
         p {
             color: gray;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 300;
             font-style: italic;
         }
