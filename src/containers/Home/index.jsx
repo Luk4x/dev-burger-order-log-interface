@@ -7,8 +7,7 @@ import MainContainer from '../../components/MainContainer';
 import Image from '../../components/Image';
 import Title from '../../components/Title';
 import Button from '../../components/Button';
-import UseAnimations from 'react-useanimations';
-import arrowDown from 'react-useanimations/lib/arrowDown';
+import 'boxicons';
 
 const Home = () => {
     const order = useRef();
@@ -71,7 +70,7 @@ const Home = () => {
                 </div>
                 <Button onClick={() => orderRecord(order, client)}>
                     <p>Pedir</p>
-                    <UseAnimations animation={arrowDown} size={30} wrapperStyle={{ transform: 'rotate(-90deg)' }} strokeColor="#eeeeee" />
+                    <box-icon name="chevrons-right" type="solid" animation="flashing" color="#eeeeee"></box-icon>
                 </Button>
             </Section>
         </MainContainer>

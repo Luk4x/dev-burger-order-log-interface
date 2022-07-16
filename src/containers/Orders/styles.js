@@ -38,14 +38,15 @@ export const Order = styled.li`
         flex-direction: column;
         justify-content: center;
         align-content: center;
-        width: 100%;
+        width: 90%;
 
         h2 {
             color: #eeeeee;
             text-align: center;
             font-size: 15px;
             font-weight: 300;
-            margin: 21px 10px 5px 0px;
+            margin: 15px 5px 15px 0px;
+            word-wrap: break-word;
         }
 
         b {
@@ -65,6 +66,9 @@ export const Order = styled.li`
             font-size: 14px;
             font-weight: 300;
             font-style: italic;
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
         }
     }
 `;

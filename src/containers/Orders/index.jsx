@@ -7,10 +7,7 @@ import MainContainer from '../../components/MainContainer';
 import Image from '../../components/Image';
 import Title from '../../components/Title';
 import Button from '../../components/Button';
-import UseAnimations from 'react-useanimations';
-import arrowDown from 'react-useanimations/lib/arrowDown';
-import archive from 'react-useanimations/lib/archive';
-import loading from 'react-useanimations/lib/loading';
+import 'boxicons';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
@@ -40,14 +37,13 @@ const Orders = () => {
                     {orders.map(order => {
                         let state = {};
                         if (order.status !== 'Pronto') {
-                            state = { animation: loading, size: 54, wrapperStyle: { position: 'absolute', top: '-25px', right: '-10px' }, strokeColor: '#f14a3d' };
-
+                            state = { name: 'loader-alt', animation: 'spin', color: '#f14a3d' };
                             setTimeout(async () => {
                                 await axios.patch(`http://localhost:3001/order/${order.id}`);
-                                setOrderState(order.id);
+                                setOrderState(order.id); // calling useEffect
                             }, Math.floor(Math.random() * (30 - 5) + 5) * 1000);
                         } else {
-                            state = { animation: archive, size: 56, wrapperStyle: { cursor: 'pointer', position: 'absolute', top: '-28px', right: '-10px' }, strokeColor: '#855434', onClick: () => deleteOrder(order.id) };
+                            state = { name: 'package', animation: 'tada-hover', color: '#855434', onClick: () => deleteOrder(order.id), style: { cursor: 'pointer' } };
                         }
 
                         return (
@@ -59,14 +55,14 @@ const Orders = () => {
                                         R$ <span>{order.price}</span>
                                     </b>
                                 </div>
-                                <UseAnimations {...state} />
+                                <box-icon {...state}></box-icon>
                             </Order>
                         );
                     })}
                 </OrdersList>
                 <Button btn2={true} onClick={() => navigate('/')}>
                     <p>Voltar</p>
-                    <UseAnimations animation={arrowDown} size={30} wrapperStyle={{ transform: 'rotate(90deg)' }} strokeColor="#eeeeee" />
+                    <box-icon name="chevrons-left" type="solid" animation="flashing" color="#eeeeee"></box-icon>
                 </Button>
             </Section>
         </MainContainer>
