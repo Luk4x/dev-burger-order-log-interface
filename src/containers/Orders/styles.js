@@ -50,8 +50,8 @@ export const Order = styled.li`
 
         b {
             position: absolute;
-            top: 7px;
-            left: 7px;
+            top: 5px;
+            left: 5px;
             color: green;
             font-size: 14.5px;
 

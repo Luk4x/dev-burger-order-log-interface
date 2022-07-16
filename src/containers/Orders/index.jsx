@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,17 +10,19 @@ import Button from '../../components/Button';
 import UseAnimations from 'react-useanimations';
 import arrowDown from 'react-useanimations/lib/arrowDown';
 import archive from 'react-useanimations/lib/archive';
+import loading from 'react-useanimations/lib/loading';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
     const navigate = useNavigate();
+    const [orderState, setOrderState] = useState({});
 
     useEffect(() => {
         (async () => {
             const { data: ordersData } = await axios.get('http://localhost:3001/order');
             setOrders(ordersData);
         })();
-    }, []);
+    }, [orderState]);
 
     const deleteOrder = async id => {
         await axios.delete(`http://localhost:3001/order/${id}`);
@@ -36,6 +38,18 @@ const Orders = () => {
                 <Title>Pedidos</Title>
                 <OrdersList>
                     {orders.map(order => {
+                        let state = {};
+                        if (order.status !== 'Pronto') {
+                            state = { animation: loading, size: 54, wrapperStyle: { position: 'absolute', top: '-25px', right: '-10px' }, strokeColor: '#f14a3d' };
+
+                            setTimeout(async () => {
+                                await axios.patch(`http://localhost:3001/order/${order.id}`);
+                                setOrderState(order.id);
+                            }, Math.floor(Math.random() * (30 - 5) + 5) * 1000);
+                        } else {
+                            state = { animation: archive, size: 56, wrapperStyle: { cursor: 'pointer', position: 'absolute', top: '-28px', right: '-10px' }, strokeColor: '#855434', onClick: () => deleteOrder(order.id) };
+                        }
+
                         return (
                             <Order key={order.id}>
                                 <div>
@@ -45,7 +59,7 @@ const Orders = () => {
                                         R$ <span>{order.price}</span>
                                     </b>
                                 </div>
-                                <UseAnimations animation={archive} size={56} wrapperStyle={{ cursor: 'pointer', position: 'absolute', top: '-30px', right: '-10px' }} strokeColor="#f14a3d" onClick={() => deleteOrder(order.id)} />
+                                <UseAnimations {...state} />
                             </Order>
                         );
                     })}
@@ -60,3 +74,7 @@ const Orders = () => {
 };
 
 export default Orders;
+
+/*
+    <UseAnimations animation={archive} size={56} wrapperStyle={{ cursor: 'pointer', position: 'absolute', top: '-28px', right: '-10px' }} strokeColor="#f14a3d" onClick={() => deleteOrder(order.id)} />
+*/
