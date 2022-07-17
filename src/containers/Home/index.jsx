@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -13,6 +13,12 @@ const Home = () => {
     const order = useRef();
     const client = useRef();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        (async () => {
+            await axios.get(`${import.meta.env.VITE_BASE_URL}/order`); // warming up API on heroku
+        })();
+    }, []);
 
     const verifyOrder = inputOrder => {
         if (inputOrder.length > 4) return true;
