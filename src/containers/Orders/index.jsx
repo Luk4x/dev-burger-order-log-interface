@@ -15,13 +15,13 @@ const Orders = () => {
 
     useEffect(() => {
         (async () => {
-            const { data: ordersData } = await axios.get('http://localhost:3001/order');
+            const { data: ordersData } = await axios.get(`${import.meta.env.VITE_BASE_URL}/order`);
             setOrders(ordersData);
         })();
     }, []);
 
     const deleteOrder = async id => {
-        await axios.delete(`http://localhost:3001/order/${id}`);
+        await axios.delete(`${import.meta.env.VITE_BASE_URL}/order/${id}`);
 
         const newOrders = orders.filter(order => order.id !== id);
         setOrders(newOrders);
@@ -44,9 +44,9 @@ const Orders = () => {
                             };
 
                             setTimeout(async () => {
-                                await axios.patch(`http://localhost:3001/order/${order.id}`);
+                                await axios.patch(`${import.meta.env.VITE_BASE_URL}/order/${order.id}`);
 
-                                const { data: ordersData } = await axios.get('http://localhost:3001/order');
+                                const { data: ordersData } = await axios.get(`${import.meta.env.VITE_BASE_URL}/order`);
                                 setOrders(ordersData);
                             }, Math.floor(Math.random() * (40 - 5) + 5) * 1000); // preparation time
                         } else {
