@@ -35,7 +35,7 @@ Ele é composto por 2 páginas:
 -   [ReactJS](https://pt-br.reactjs.org)
 -   [React Router](https://reactrouter.com/docs/en/v6/getting-started/overview)
 -   [Styled-Components](https://styled-components.com)
--   [React-UseAnimations](https://react.useanimations.com/)
+-   [BoxIcons](https://boxicons.com/)
 -   [Axios](https://axios-http.com/docs/intro)
 
 ## Como usar

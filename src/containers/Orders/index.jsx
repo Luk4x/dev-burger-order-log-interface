@@ -12,14 +12,13 @@ import 'boxicons';
 const Orders = () => {
     const [orders, setOrders] = useState([]);
     const navigate = useNavigate();
-    const [orderState, setOrderState] = useState({});
 
     useEffect(() => {
         (async () => {
             const { data: ordersData } = await axios.get('http://localhost:3001/order');
             setOrders(ordersData);
         })();
-    }, [orderState]);
+    }, []);
 
     const deleteOrder = async id => {
         await axios.delete(`http://localhost:3001/order/${id}`);
@@ -37,13 +36,28 @@ const Orders = () => {
                     {orders.map(order => {
                         let state = {};
                         if (order.status !== 'Pronto') {
-                            state = { name: 'loader-alt', animation: 'spin', color: '#f14a3d' };
+                            // preparation state
+                            state = {
+                                name: 'loader-alt',
+                                animation: 'spin',
+                                color: '#f14a3d'
+                            };
+
                             setTimeout(async () => {
                                 await axios.patch(`http://localhost:3001/order/${order.id}`);
-                                setOrderState(order.id); // calling useEffect
-                            }, Math.floor(Math.random() * (30 - 5) + 5) * 1000);
+
+                                const { data: ordersData } = await axios.get('http://localhost:3001/order');
+                                setOrders(ordersData);
+                            }, Math.floor(Math.random() * (40 - 5) + 5) * 1000); // preparation time
                         } else {
-                            state = { name: 'package', animation: 'tada-hover', color: '#855434', onClick: () => deleteOrder(order.id), style: { cursor: 'pointer' } };
+                            // done state
+                            state = {
+                                name: 'package',
+                                animation: 'tada-hover',
+                                color: '#855434',
+                                onClick: () => deleteOrder(order.id),
+                                style: { cursor: 'pointer' }
+                            };
                         }
 
                         return (

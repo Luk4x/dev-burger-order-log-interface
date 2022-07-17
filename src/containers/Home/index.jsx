@@ -35,7 +35,7 @@ const Home = () => {
         const clienteName = inputClient.current.value;
 
         if (verifyOrder(order) && verifyClient(clienteName)) {
-            const response = await axios.post('http://localhost:3001/order', { order, clienteName, price: Math.floor(Math.random() * (100 - 10) + 10) });
+            const response = await axios.post('http://localhost:3001/order', { order, clienteName, price: order.length + Math.floor(Math.random() * (40 - 5) + 5) });
 
             if (response.status === 201) {
                 navigate('/orders');
