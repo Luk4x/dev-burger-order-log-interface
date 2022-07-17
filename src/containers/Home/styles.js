@@ -11,6 +11,7 @@ export const Section = styled.section`
 
     div {
         width: 100%;
+        position: relative;
     }
 `;
 
@@ -22,7 +23,7 @@ export const P = styled.p`
 `;
 
 export const Input = styled.input`
-    padding: 12px 15px;
+    padding: 12px 32px 12px 12px;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.25);
     color: lightgray;
@@ -32,10 +33,6 @@ export const Input = styled.input`
     transition: all 0.2s ease-in-out;
     border: 2px solid #222;
 
-    &:hover,
-    &:focus {
-        transform: translateY(1.5px);
-    }
     &::placeholder {
         font-style: italic;
     }

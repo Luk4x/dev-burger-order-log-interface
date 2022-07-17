@@ -35,7 +35,7 @@ const Home = () => {
         const clienteName = inputClient.current.value;
 
         if (verifyOrder(order) && verifyClient(clienteName)) {
-            const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/order`, { order, clienteName, price: order.length + Math.floor(Math.random() * (40 - 5) + 5) });
+            const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/order`, { order, clienteName, price: order.length + Math.floor(Math.random() * (50 - 1) + 1) });
 
             if (response.status === 201) {
                 navigate('/orders');
@@ -57,6 +57,7 @@ const Home = () => {
                             order.current.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
                         }}
                     />
+                    <box-icon name="knife" color="#eeeeee" style={{ position: 'absolute', right: '7px', top: '32px' }}></box-icon>
                 </div>
                 <div>
                     <P>Nome do Cliente</P>
@@ -67,6 +68,7 @@ const Home = () => {
                             client.current.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
                         }}
                     />
+                    <box-icon name="user" type="solid" color="#eeeeee" style={{ position: 'absolute', right: '7px', top: '32px' }}></box-icon>
                 </div>
                 <Button onClick={() => orderRecord(order, client)}>
                     <p>Pedir</p>
