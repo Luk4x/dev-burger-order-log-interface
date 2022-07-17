@@ -31,27 +31,29 @@ export const Order = styled.li`
     align-items: center;
     justify-content: space-between;
     position: relative;
-    overflow: hidden;
 
     div {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-content: center;
-        width: 100%;
+        width: 90%;
 
         h2 {
             color: #eeeeee;
             text-align: center;
             font-size: 15px;
             font-weight: 300;
-            margin: 21px 10px 5px 0px;
+            margin: 18px 5px 18px 0px;
+            word-wrap: break-word;
+            border-bottom: 2px solid gray;
+            border-radius: 2px;
         }
 
         b {
             position: absolute;
-            top: 7px;
-            left: 7px;
+            top: 5px;
+            left: 5px;
             color: green;
             font-size: 14.5px;
 
@@ -65,6 +67,9 @@ export const Order = styled.li`
             font-size: 14px;
             font-weight: 300;
             font-style: italic;
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
         }
     }
 `;

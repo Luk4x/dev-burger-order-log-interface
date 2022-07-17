@@ -7,8 +7,7 @@ import MainContainer from '../../components/MainContainer';
 import Image from '../../components/Image';
 import Title from '../../components/Title';
 import Button from '../../components/Button';
-import UseAnimations from 'react-useanimations';
-import arrowDown from 'react-useanimations/lib/arrowDown';
+import 'boxicons';
 
 const Home = () => {
     const order = useRef();
@@ -36,7 +35,7 @@ const Home = () => {
         const clienteName = inputClient.current.value;
 
         if (verifyOrder(order) && verifyClient(clienteName)) {
-            const response = await axios.post('http://localhost:3001/order', { order, clienteName, price: Math.floor(Math.random() * (100 - 10) + 10) });
+            const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/order`, { order, clienteName, price: order.length + Math.floor(Math.random() * (40 - 5) + 5) });
 
             if (response.status === 201) {
                 navigate('/orders');
@@ -71,7 +70,7 @@ const Home = () => {
                 </div>
                 <Button onClick={() => orderRecord(order, client)}>
                     <p>Pedir</p>
-                    <UseAnimations animation={arrowDown} size={30} wrapperStyle={{ transform: 'rotate(-90deg)' }} strokeColor="#eeeeee" />
+                    <box-icon name="chevrons-right" type="solid" animation="flashing" color="#eeeeee"></box-icon>
                 </Button>
             </Section>
         </MainContainer>

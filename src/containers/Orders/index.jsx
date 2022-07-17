@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,9 +7,7 @@ import MainContainer from '../../components/MainContainer';
 import Image from '../../components/Image';
 import Title from '../../components/Title';
 import Button from '../../components/Button';
-import UseAnimations from 'react-useanimations';
-import arrowDown from 'react-useanimations/lib/arrowDown';
-import archive from 'react-useanimations/lib/archive';
+import 'boxicons';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
@@ -17,13 +15,13 @@ const Orders = () => {
 
     useEffect(() => {
         (async () => {
-            const { data: ordersData } = await axios.get('http://localhost:3001/order');
+            const { data: ordersData } = await axios.get(`${import.meta.env.VITE_BASE_URL}/order`);
             setOrders(ordersData);
         })();
     }, []);
 
     const deleteOrder = async id => {
-        await axios.delete(`http://localhost:3001/order/${id}`);
+        await axios.delete(`${import.meta.env.VITE_BASE_URL}/order/${id}`);
 
         const newOrders = orders.filter(order => order.id !== id);
         setOrders(newOrders);
@@ -36,6 +34,32 @@ const Orders = () => {
                 <Title>Pedidos</Title>
                 <OrdersList>
                     {orders.map(order => {
+                        let state = {};
+                        if (order.status !== 'Pronto') {
+                            // preparation state
+                            state = {
+                                name: 'loader-alt',
+                                animation: 'spin',
+                                color: '#f14a3d'
+                            };
+
+                            setTimeout(async () => {
+                                await axios.patch(`${import.meta.env.VITE_BASE_URL}/order/${order.id}`);
+
+                                const { data: ordersData } = await axios.get(`${import.meta.env.VITE_BASE_URL}/order`);
+                                setOrders(ordersData);
+                            }, Math.floor(Math.random() * (40 - 5) + 5) * 1000); // preparation time
+                        } else {
+                            // done state
+                            state = {
+                                name: 'package',
+                                animation: 'tada-hover',
+                                color: '#855434',
+                                onClick: () => deleteOrder(order.id),
+                                style: { cursor: 'pointer' }
+                            };
+                        }
+
                         return (
                             <Order key={order.id}>
                                 <div>
@@ -45,14 +69,14 @@ const Orders = () => {
                                         R$ <span>{order.price}</span>
                                     </b>
                                 </div>
-                                <UseAnimations animation={archive} size={56} wrapperStyle={{ cursor: 'pointer', position: 'absolute', top: '-30px', right: '-10px' }} strokeColor="#f14a3d" onClick={() => deleteOrder(order.id)} />
+                                <box-icon {...state}></box-icon>
                             </Order>
                         );
                     })}
                 </OrdersList>
                 <Button btn2={true} onClick={() => navigate('/')}>
                     <p>Voltar</p>
-                    <UseAnimations animation={arrowDown} size={30} wrapperStyle={{ transform: 'rotate(90deg)' }} strokeColor="#eeeeee" />
+                    <box-icon name="chevrons-left" type="solid" animation="flashing" color="#eeeeee"></box-icon>
                 </Button>
             </Section>
         </MainContainer>
@@ -60,3 +84,7 @@ const Orders = () => {
 };
 
 export default Orders;
+
+/*
+    <UseAnimations animation={archive} size={56} wrapperStyle={{ cursor: 'pointer', position: 'absolute', top: '-28px', right: '-10px' }} strokeColor="#f14a3d" onClick={() => deleteOrder(order.id)} />
+*/
