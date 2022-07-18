@@ -16,6 +16,9 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
+    const [popoverPlacement, setPopoverPlacement] = useState('left-start');
+    const [popoverHeaderBorderLeft, setPopoverHeaderBorderLeft] = useState('10px');
+    const [popoverHeaderBorderRight, setPopoverHeaderBorderRight] = useState(0);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -30,6 +33,18 @@ const Orders = () => {
 
         const newOrders = orders.filter(order => order.id !== id);
         setOrders(newOrders);
+    };
+
+    onresize = () => {
+        if (window.innerWidth < 570) {
+            setPopoverPlacement('left-start');
+            setPopoverHeaderBorderLeft('10px');
+            setPopoverHeaderBorderRight(0);
+        } else {
+            setPopoverPlacement('right-start');
+            setPopoverHeaderBorderLeft(0);
+            setPopoverHeaderBorderRight('10px');
+        }
     };
 
     return (
@@ -70,18 +85,18 @@ const Orders = () => {
                             message = 'pode levá-lo!';
                         }
 
-                        let popoverPlacement = '';
-                        let popoverHeaderStyle = {};
-                        let popoverBodyStyle = {};
-                        if (window.innerWidth < 570) {
-                            popoverPlacement = 'left-start';
-                            popoverHeaderStyle = { borderTopRightRadius: '0', background: state.color, color: '#eeeeee', padding: '5px 10px', fontSize: '15px', fontWeight: '300' };
-                            popoverBodyStyle = { background: '#222', color: 'gray', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', padding: '5px 10px', fontSize: '14px' };
-                        } else {
-                            popoverPlacement = 'right-start';
-                            popoverHeaderStyle = { borderTopLeftRadius: '0', background: state.color, color: '#eeeeee', padding: '5px 10px', fontSize: '15px', fontWeight: '300' };
-                            popoverBodyStyle = { background: '#222', color: 'gray', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', padding: '5px 10px', fontSize: '14px' };
-                        }
+                        // let popoverPlacement = '';
+                        // let popoverHeaderStyle = {};
+                        // let popoverBodyStyle = {};
+                        // if (window.innerWidth < 570) {
+                        //     popoverPlacement = 'left-start';
+                        //     popoverHeaderStyle = { borderTopRightRadius: '0', background: state.color, color: '#eeeeee', padding: '5px 10px', fontSize: '15px', fontWeight: '300' };
+                        //     popoverBodyStyle = { background: '#222', color: 'gray', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', padding: '5px 10px', fontSize: '14px' };
+                        // } else {
+                        //     popoverPlacement = 'right-start';
+                        //     popoverHeaderStyle = { borderTopLeftRadius: '0', background: state.color, color: '#eeeeee', padding: '5px 10px', fontSize: '15px', fontWeight: '300' };
+                        //     popoverBodyStyle = { background: '#222', color: 'gray', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', padding: '5px 10px', fontSize: '14px' };
+                        // }
 
                         return (
                             <Order key={order.id}>
@@ -97,10 +112,10 @@ const Orders = () => {
                                     placement={popoverPlacement}
                                     overlay={
                                         <Popover id="popover-basic" style={{ background: 'none', width: '130px', marginLeft: '10px', border: 'none' }}>
-                                            <Popover.Header as="h3" style={popoverHeaderStyle}>
+                                            <Popover.Header as="h3" style={{ background: state.color, color: '#eeeeee', padding: '5px 10px', fontSize: '16px', fontWeight: '300', borderTopRightRadius: popoverHeaderBorderRight, borderTopLeftRadius: popoverHeaderBorderLeft }}>
                                                 Ei, {order.clienteName}!
                                             </Popover.Header>
-                                            <Popover.Body as="p" style={popoverBodyStyle}>
+                                            <Popover.Body as="p" style={{ background: '#222', color: 'gray', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', padding: '5px 10px', fontSize: '14px' }}>
                                                 Seu pedido está <span style={{ color: state.color }}>{order.status}</span>, {message}
                                             </Popover.Body>
                                         </Popover>

@@ -18,6 +18,8 @@ export const OrdersList = styled.ul`
     align-items: center;
     justify-content: center;
     gap: 10px;
+    margin: 0;
+    padding: 0;
 `;
 
 export const Order = styled.li`
