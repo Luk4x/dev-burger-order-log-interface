@@ -13,6 +13,7 @@ import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import $ from 'jquery';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
@@ -35,7 +36,7 @@ const Orders = () => {
         setOrders(newOrders);
     };
 
-    onresize = () => {
+    $(window).on('load resize', () => {
         if (window.innerWidth < 570) {
             setPopoverPlacement('left-start');
             setPopoverHeaderBorderLeft('10px');
@@ -45,7 +46,7 @@ const Orders = () => {
             setPopoverHeaderBorderLeft(0);
             setPopoverHeaderBorderRight('10px');
         }
-    };
+    });
 
     return (
         <MainContainer>
@@ -84,19 +85,6 @@ const Orders = () => {
 
                             message = 'pode levá-lo!';
                         }
-
-                        // let popoverPlacement = '';
-                        // let popoverHeaderStyle = {};
-                        // let popoverBodyStyle = {};
-                        // if (window.innerWidth < 570) {
-                        //     popoverPlacement = 'left-start';
-                        //     popoverHeaderStyle = { borderTopRightRadius: '0', background: state.color, color: '#eeeeee', padding: '5px 10px', fontSize: '15px', fontWeight: '300' };
-                        //     popoverBodyStyle = { background: '#222', color: 'gray', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', padding: '5px 10px', fontSize: '14px' };
-                        // } else {
-                        //     popoverPlacement = 'right-start';
-                        //     popoverHeaderStyle = { borderTopLeftRadius: '0', background: state.color, color: '#eeeeee', padding: '5px 10px', fontSize: '15px', fontWeight: '300' };
-                        //     popoverBodyStyle = { background: '#222', color: 'gray', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', padding: '5px 10px', fontSize: '14px' };
-                        // }
 
                         return (
                             <Order key={order.id}>
