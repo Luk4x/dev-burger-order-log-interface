@@ -37,7 +37,6 @@ Ele é composto por 2 páginas:
 -   [React Router](https://reactrouter.com/docs/en/v6/getting-started/overview)
 -   [Styled-Components](https://styled-components.com)
 -   [Bootstrap](https://getbootstrap.com/), [React-Bootstrap](https://react-bootstrap.github.io/)
--   [JQuery](https://jquery.com/)
 -   [BoxIcons](https://boxicons.com/)
 -   [Axios](https://axios-http.com/docs/intro)
 

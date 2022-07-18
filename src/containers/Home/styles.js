@@ -25,13 +25,13 @@ export const P = styled.p`
 export const Input = styled.input`
     padding: 12px 32px 12px 12px;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.25);
+    background: #333;
     color: lightgray;
     width: 100%;
     height: 46px;
     font-size: 16px;
     transition: all 0.2s ease-in-out;
-    border: 2px solid #222;
+    border: 2px solid #111;
 
     &::placeholder {
         font-style: italic;

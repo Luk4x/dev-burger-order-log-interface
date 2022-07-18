@@ -9,10 +9,12 @@ import Title from '../../components/Title';
 import Button from '../../components/Button';
 import 'boxicons';
 
-import Popover from 'react-bootstrap/Popover';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import Popover from 'react-bootstrap/Popover';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Dropdown from 'react-bootstrap/Dropdown';
+
 import $ from 'jquery';
 
 const Orders = () => {
@@ -27,16 +29,7 @@ const Orders = () => {
             const { data: ordersData } = await axios.get(`${import.meta.env.VITE_BASE_URL}/order`);
             setOrders(ordersData);
         })();
-    }, []);
 
-    const deleteOrder = async id => {
-        await axios.delete(`${import.meta.env.VITE_BASE_URL}/order/${id}`);
-
-        const newOrders = orders.filter(order => order.id !== id);
-        setOrders(newOrders);
-    };
-
-    $(window).on('load resize', () => {
         if (window.innerWidth < 570) {
             setPopoverPlacement('left-start');
             setPopoverHeaderBorderLeft('10px');
@@ -46,10 +39,42 @@ const Orders = () => {
             setPopoverHeaderBorderLeft(0);
             setPopoverHeaderBorderRight('10px');
         }
-    });
+    }, []);
+
+    const deleteOrder = async id => {
+        await axios.delete(`${import.meta.env.VITE_BASE_URL}/order/${id}`);
+
+        const newOrders = orders.filter(order => order.id !== id);
+        setOrders(newOrders);
+    };
+
+    onresize = () => {
+        if (window.innerWidth < 570) {
+            setPopoverPlacement('left-start');
+            setPopoverHeaderBorderLeft('10px');
+            setPopoverHeaderBorderRight(0);
+        } else {
+            setPopoverPlacement('right-start');
+            setPopoverHeaderBorderLeft(0);
+            setPopoverHeaderBorderRight('10px');
+        }
+    };
 
     return (
         <MainContainer>
+            <Dropdown style={{ position: 'fixed', top: '10px', right: '10px' }} drop="start">
+                <Dropdown.Toggle variant="dark" id="dropdown-basic" style={{ color: '#eeeeee', background: '#2A2A30' }}>
+                    Socials
+                </Dropdown.Toggle>
+                <Dropdown.Menu variant="dark" style={{ background: '#333', marginRight: '5px' }}>
+                    <Dropdown.Item href="https://www.linkedin.com/in/lucasmacielf/" target="_blank" style={{ display: 'flex', justifyContent: 'start', alignItems: 'center', gap: '5px', color: 'gray' }}>
+                        <box-icon name="linkedin-square" type="logo" color="#0077b5"></box-icon>
+                        <>LinkedIn</>
+                    </Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
             <Image img2={true} alt="CodeBurger Package" />
             <Section>
                 <Title>Pedidos</Title>
