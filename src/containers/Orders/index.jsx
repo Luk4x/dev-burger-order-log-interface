@@ -41,7 +41,6 @@ const Orders = () => {
                     {orders.map(order => {
                         let state = {};
                         let message = '';
-
                         if (order.status !== 'Pronto') {
                             // preparation state
                             state = {
@@ -71,6 +70,19 @@ const Orders = () => {
                             message = 'pode levá-lo!';
                         }
 
+                        let popoverPlacement = '';
+                        let popoverHeaderStyle = {};
+                        let popoverBodyStyle = {};
+                        if (window.innerWidth < 570) {
+                            popoverPlacement = 'left-start';
+                            popoverHeaderStyle = { borderTopRightRadius: '0', background: state.color, color: '#eeeeee', padding: '5px 10px', fontSize: '15px', fontWeight: '300' };
+                            popoverBodyStyle = { background: '#222', color: 'gray', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', padding: '5px 10px', fontSize: '14px' };
+                        } else {
+                            popoverPlacement = 'right-start';
+                            popoverHeaderStyle = { borderTopLeftRadius: '0', background: state.color, color: '#eeeeee', padding: '5px 10px', fontSize: '15px', fontWeight: '300' };
+                            popoverBodyStyle = { background: '#222', color: 'gray', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', padding: '5px 10px', fontSize: '14px' };
+                        }
+
                         return (
                             <Order key={order.id}>
                                 <div>
@@ -82,13 +94,13 @@ const Orders = () => {
                                 </div>
                                 <OverlayTrigger
                                     trigger={['hover', 'focus']}
-                                    placement="right-start"
+                                    placement={popoverPlacement}
                                     overlay={
-                                        <Popover id="popover-basic" style={{ background: 'none', width: '150px', marginLeft: '10px' }}>
-                                            <Popover.Header as="h3" style={{ background: state.color, color: '#eeeeee', borderTopLeftRadius: '0', padding: '5px 10px' }}>
-                                                Ei {order.clienteName}!
+                                        <Popover id="popover-basic" style={{ background: 'none', width: '130px', marginLeft: '10px', border: 'none' }}>
+                                            <Popover.Header as="h3" style={popoverHeaderStyle}>
+                                                Ei, {order.clienteName}!
                                             </Popover.Header>
-                                            <Popover.Body as="p" style={{ background: '#222', color: 'gray', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', padding: '5px 10px' }}>
+                                            <Popover.Body as="p" style={popoverBodyStyle}>
                                                 Seu pedido está <span style={{ color: state.color }}>{order.status}</span>, {message}
                                             </Popover.Body>
                                         </Popover>
@@ -110,10 +122,3 @@ const Orders = () => {
 };
 
 export default Orders;
-
-/*
-    https://react-bootstrap.github.io/components/overlays/#popover-header-props
-    
-    arrowProps={false}
-
-*/
