@@ -9,8 +9,16 @@ import Title from '../../components/Title';
 import Button from '../../components/Button';
 import 'boxicons';
 
+import Popover from 'react-bootstrap/Popover';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+
 const Orders = () => {
     const [orders, setOrders] = useState([]);
+    const [popoverPlacement, setPopoverPlacement] = useState('left-start');
+    const [popoverHeaderBorderLeft, setPopoverHeaderBorderLeft] = useState('10px');
+    const [popoverHeaderBorderRight, setPopoverHeaderBorderRight] = useState(0);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -27,6 +35,18 @@ const Orders = () => {
         setOrders(newOrders);
     };
 
+    onresize = () => {
+        if (window.innerWidth < 570) {
+            setPopoverPlacement('left-start');
+            setPopoverHeaderBorderLeft('10px');
+            setPopoverHeaderBorderRight(0);
+        } else {
+            setPopoverPlacement('right-start');
+            setPopoverHeaderBorderLeft(0);
+            setPopoverHeaderBorderRight('10px');
+        }
+    };
+
     return (
         <MainContainer>
             <Image img2={true} alt="CodeBurger Package" />
@@ -35,6 +55,7 @@ const Orders = () => {
                 <OrdersList>
                     {orders.map(order => {
                         let state = {};
+                        let message = '';
                         if (order.status !== 'Pronto') {
                             // preparation state
                             state = {
@@ -42,6 +63,8 @@ const Orders = () => {
                                 animation: 'spin',
                                 color: '#f14a3d'
                             };
+
+                            message = 'aguarde mais um pouco!';
 
                             setTimeout(async () => {
                                 await axios.patch(`${import.meta.env.VITE_BASE_URL}/order/${order.id}`);
@@ -58,7 +81,22 @@ const Orders = () => {
                                 onClick: () => deleteOrder(order.id),
                                 style: { cursor: 'pointer' }
                             };
+
+                            message = 'pode levá-lo!';
                         }
+
+                        // let popoverPlacement = '';
+                        // let popoverHeaderStyle = {};
+                        // let popoverBodyStyle = {};
+                        // if (window.innerWidth < 570) {
+                        //     popoverPlacement = 'left-start';
+                        //     popoverHeaderStyle = { borderTopRightRadius: '0', background: state.color, color: '#eeeeee', padding: '5px 10px', fontSize: '15px', fontWeight: '300' };
+                        //     popoverBodyStyle = { background: '#222', color: 'gray', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', padding: '5px 10px', fontSize: '14px' };
+                        // } else {
+                        //     popoverPlacement = 'right-start';
+                        //     popoverHeaderStyle = { borderTopLeftRadius: '0', background: state.color, color: '#eeeeee', padding: '5px 10px', fontSize: '15px', fontWeight: '300' };
+                        //     popoverBodyStyle = { background: '#222', color: 'gray', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', padding: '5px 10px', fontSize: '14px' };
+                        // }
 
                         return (
                             <Order key={order.id}>
@@ -69,13 +107,28 @@ const Orders = () => {
                                         R$ <span>{order.price}</span>
                                     </b>
                                 </div>
-                                <box-icon {...state}></box-icon>
+                                <OverlayTrigger
+                                    trigger={['hover', 'focus']}
+                                    placement={popoverPlacement}
+                                    overlay={
+                                        <Popover id="popover-basic" style={{ background: 'none', width: '130px', marginLeft: '10px', border: 'none' }}>
+                                            <Popover.Header as="h3" style={{ background: state.color, color: '#eeeeee', padding: '5px 10px', fontSize: '16px', fontWeight: '300', borderTopRightRadius: popoverHeaderBorderRight, borderTopLeftRadius: popoverHeaderBorderLeft }}>
+                                                Ei, {order.clienteName}!
+                                            </Popover.Header>
+                                            <Popover.Body as="p" style={{ background: '#222', color: 'gray', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', padding: '5px 10px', fontSize: '14px' }}>
+                                                Seu pedido está <span style={{ color: state.color }}>{order.status}</span>, {message}
+                                            </Popover.Body>
+                                        </Popover>
+                                    }
+                                >
+                                    <box-icon {...state}></box-icon>
+                                </OverlayTrigger>
                             </Order>
                         );
                     })}
                 </OrdersList>
                 <Button btn2={true} onClick={() => navigate('/')}>
-                    <p>Voltar</p>
+                    <>Voltar</>
                     <box-icon name="chevrons-left" type="solid" animation="flashing" color="#eeeeee"></box-icon>
                 </Button>
             </Section>
@@ -84,7 +137,3 @@ const Orders = () => {
 };
 
 export default Orders;
-
-/*
-    <UseAnimations animation={archive} size={56} wrapperStyle={{ cursor: 'pointer', position: 'absolute', top: '-28px', right: '-10px' }} strokeColor="#f14a3d" onClick={() => deleteOrder(order.id)} />
-*/

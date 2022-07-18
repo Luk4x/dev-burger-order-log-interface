@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -63,7 +63,7 @@ const Home = () => {
                             order.current.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
                         }}
                     />
-                    <box-icon name="knife" color="#eeeeee" style={{ position: 'absolute', right: '7px', top: '32px' }}></box-icon>
+                    <box-icon name="knife" color="#d93856" style={{ position: 'absolute', right: '7px', top: '38px' }}></box-icon>
                 </div>
                 <div>
                     <P>Nome do Cliente</P>
@@ -74,10 +74,10 @@ const Home = () => {
                             client.current.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
                         }}
                     />
-                    <box-icon name="user" type="solid" color="#eeeeee" style={{ position: 'absolute', right: '7px', top: '32px' }}></box-icon>
+                    <box-icon name="user" type="solid" color="#d93856" style={{ position: 'absolute', right: '7px', top: '38px' }}></box-icon>
                 </div>
                 <Button onClick={() => orderRecord(order, client)}>
-                    <p>Pedir</p>
+                    <>Pedir</>
                     <box-icon name="chevrons-right" type="solid" animation="flashing" color="#eeeeee"></box-icon>
                 </Button>
             </Section>

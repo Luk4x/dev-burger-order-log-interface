@@ -18,6 +18,8 @@ export const OrdersList = styled.ul`
     align-items: center;
     justify-content: center;
     gap: 10px;
+    margin: 0;
+    padding: 0;
 `;
 
 export const Order = styled.li`
@@ -52,7 +54,7 @@ export const Order = styled.li`
 
         b {
             position: absolute;
-            top: 5px;
+            top: 1px;
             left: 5px;
             color: green;
             font-size: 14.5px;
@@ -68,7 +70,7 @@ export const Order = styled.li`
             font-weight: 300;
             font-style: italic;
             position: absolute;
-            bottom: 5px;
+            bottom: -15px;
             left: 5px;
         }
     }
