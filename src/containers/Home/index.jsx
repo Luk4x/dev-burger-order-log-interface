@@ -53,7 +53,7 @@ const Home = () => {
     return (
         <MainContainer>
             <Socials />
-            <Image alt="CodeBurger Logo Image" />
+            <Image alt="CodeBurger Logo Image" style={{ margin: '0 -50px' }} />
             <Section>
                 <Title>Faça seu pedido!</Title>
                 <div>

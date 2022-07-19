@@ -61,7 +61,7 @@ const Orders = () => {
     return (
         <MainContainer>
             <Socials />
-            <Image img2={true} alt="CodeBurger Package" />
+            <Image img2={true} alt="CodeBurger Package" style={{ margin: '-40px 0' }} />
             <Section>
                 <Title>Pedidos</Title>
                 <OrdersList>
