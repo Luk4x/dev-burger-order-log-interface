@@ -15,8 +15,6 @@ import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-import $ from 'jquery';
-
 const Orders = () => {
     const [orders, setOrders] = useState([]);
     const [popoverPlacement, setPopoverPlacement] = useState('left-start');
@@ -60,6 +58,34 @@ const Orders = () => {
         }
     };
 
+    const socials = [
+        {
+            name: 'LinkedIn',
+            link: 'https://www.linkedin.com/in/lucasmacielf/',
+            icon: { name: 'linkedin-square', animation: 'flashing', type: 'logo', color: '#0077b5' }
+        },
+        {
+            name: 'Github',
+            link: 'https://github.com/Luk4x',
+            icon: { name: 'github', type: 'logo', color: '#F2F2F2' }
+        },
+        {
+            name: 'WhatsApp',
+            link: 'https://wa.me/5522996112570?text=Yo,%20feel%20free%20to%20contact%20me.',
+            icon: { name: 'whatsapp', type: 'logo', color: '#45c655' }
+        },
+        {
+            name: 'Telegram',
+            link: 'https://t.me/lu_k4x',
+            icon: { name: 'telegram', type: 'logo', color: '#25a3e1' }
+        },
+        {
+            name: 'Instagram',
+            link: 'https://www.instagram.com/lu_k4x/',
+            icon: { name: 'instagram', type: 'logo', color: '#E4405F' }
+        }
+    ];
+
     return (
         <MainContainer>
             <Dropdown style={{ position: 'fixed', top: '10px', right: '10px' }} drop="start">
@@ -67,12 +93,14 @@ const Orders = () => {
                     Socials
                 </Dropdown.Toggle>
                 <Dropdown.Menu variant="dark" style={{ background: '#333', marginRight: '5px' }}>
-                    <Dropdown.Item href="https://www.linkedin.com/in/lucasmacielf/" target="_blank" style={{ display: 'flex', justifyContent: 'start', alignItems: 'center', gap: '5px', color: 'gray' }}>
-                        <box-icon name="linkedin-square" type="logo" color="#0077b5"></box-icon>
-                        <>LinkedIn</>
-                    </Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                    {socials.map(social => {
+                        return (
+                            <Dropdown.Item href={social.link} target="_blank" style={{ display: 'flex', justifyContent: 'start', alignItems: 'center', gap: '8px', color: 'gray' }}>
+                                <box-icon {...social.icon}></box-icon>
+                                <>{social.name}</>
+                            </Dropdown.Item>
+                        );
+                    })}
                 </Dropdown.Menu>
             </Dropdown>
             <Image img2={true} alt="CodeBurger Package" />
