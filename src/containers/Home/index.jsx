@@ -7,6 +7,7 @@ import MainContainer from '../../components/MainContainer';
 import Image from '../../components/Image';
 import Title from '../../components/Title';
 import Button from '../../components/Button';
+import Socials from '../../components/Socials';
 import 'boxicons';
 
 const Home = () => {
@@ -51,6 +52,7 @@ const Home = () => {
 
     return (
         <MainContainer>
+            <Socials />
             <Image alt="CodeBurger Logo Image" />
             <Section>
                 <Title>Faça seu pedido!</Title>
