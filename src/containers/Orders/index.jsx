@@ -28,15 +28,7 @@ const Orders = () => {
             setOrders(ordersData);
         })();
 
-        if (window.innerWidth < 570) {
-            setPopoverPlacement('left-start');
-            setPopoverHeaderBorderLeft('10px');
-            setPopoverHeaderBorderRight(0);
-        } else {
-            setPopoverPlacement('right-start');
-            setPopoverHeaderBorderLeft(0);
-            setPopoverHeaderBorderRight('10px');
-        }
+        orderStatusResponsiveness();
     }, []);
 
     const deleteOrder = async id => {
@@ -46,8 +38,8 @@ const Orders = () => {
         setOrders(newOrders);
     };
 
-    onresize = () => {
-        if (window.innerWidth < 570) {
+    const orderStatusResponsiveness = () => {
+        if ((window.innerWidth < 1150 && window.innerWidth > 758) || window.innerWidth < 570) {
             setPopoverPlacement('left-start');
             setPopoverHeaderBorderLeft('10px');
             setPopoverHeaderBorderRight(0);
@@ -57,6 +49,8 @@ const Orders = () => {
             setPopoverHeaderBorderRight('10px');
         }
     };
+
+    onresize = () => orderStatusResponsiveness();
 
     return (
         <MainContainer>
