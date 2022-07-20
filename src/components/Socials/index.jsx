@@ -22,7 +22,7 @@ const Socials = () => {
         },
         {
             name: 'WhatsApp',
-            link: 'https://wa.me/5522996112570?text=Yo,%20feel%20free%20to%20contact%20me.',
+            link: 'https://wa.me/5522996112570?text=Yo,%20sinta-se%20livre%20para%20entrar%20em%20contato%20comigo.',
             icon: { name: 'whatsapp', type: 'logo', color: '#45c655' }
         },
         {
