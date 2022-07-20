@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
@@ -6,6 +6,9 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import 'boxicons';
 
 const Socials = () => {
+    const [discordText, setDiscordText] = useState('Luk4x#5068');
+    const [discordIcon, setDiscordIcon] = useState(null);
+
     const socials = [
         {
             name: 'LinkedIn',
@@ -48,6 +51,25 @@ const Socials = () => {
                         </Dropdown.Item>
                     );
                 })}
+                <Dropdown.Item
+                    style={{ display: 'flex', justifyContent: 'start', alignItems: 'center', gap: '8px', color: 'gray' }}
+                    onClick={() => {
+                        navigator.clipboard.writeText('Luk4x#5068');
+                    }}
+                    onMouseEnter={() => {
+                        setDiscordText('Copy');
+                        setDiscordIcon(<box-icon name="clipboard" color="#6b6b6b" style={{ marginLeft: '-5px' }}></box-icon>);
+                    }}
+                    onMouseLeave={() => {
+                        setDiscordText('Luk4x#5068');
+                        setDiscordIcon(null);
+                    }}
+                >
+                    <box-icon name="discord-alt" type="logo" color="#545fef"></box-icon>
+                    <>
+                        {discordText} {discordIcon}
+                    </>
+                </Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
     );

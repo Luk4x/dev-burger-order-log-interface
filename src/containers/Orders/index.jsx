@@ -22,22 +22,6 @@ const Orders = () => {
     const [popoverHeaderBorderRight, setPopoverHeaderBorderRight] = useState(0);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        (async () => {
-            const { data: ordersData } = await axios.get(`${import.meta.env.VITE_BASE_URL}/order`);
-            setOrders(ordersData);
-        })();
-
-        orderStatusResponsiveness();
-    }, []);
-
-    const deleteOrder = async id => {
-        await axios.delete(`${import.meta.env.VITE_BASE_URL}/order/${id}`);
-
-        const newOrders = orders.filter(order => order.id !== id);
-        setOrders(newOrders);
-    };
-
     const orderStatusResponsiveness = () => {
         if ((window.innerWidth < 1150 && window.innerWidth > 758) || window.innerWidth < 570) {
             setPopoverPlacement('left-start');
@@ -50,7 +34,23 @@ const Orders = () => {
         }
     };
 
+    useEffect(() => {
+        (async () => {
+            const { data: ordersData } = await axios.get(`${import.meta.env.VITE_BASE_URL}/order`);
+            setOrders(ordersData);
+        })();
+
+        orderStatusResponsiveness();
+    }, []);
+
     onresize = () => orderStatusResponsiveness();
+
+    const deleteOrder = async id => {
+        await axios.delete(`${import.meta.env.VITE_BASE_URL}/order/${id}`);
+
+        const newOrders = orders.filter(order => order.id !== id);
+        setOrders(newOrders);
+    };
 
     return (
         <MainContainer>
