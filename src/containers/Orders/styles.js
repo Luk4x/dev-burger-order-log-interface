@@ -24,11 +24,11 @@ export const OrdersList = styled.ul`
 
 export const Order = styled.li`
     width: 100%;
-    background: rgba(255, 255, 255, 0.25);
+    background: #333;
     padding: 10px;
     border-radius: 10px;
     color: lightgray;
-    border: 2px solid #222;
+    border: 2px solid #111;
     display: flex;
     align-items: center;
     justify-content: space-between;

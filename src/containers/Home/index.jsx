@@ -7,6 +7,7 @@ import MainContainer from '../../components/MainContainer';
 import Image from '../../components/Image';
 import Title from '../../components/Title';
 import Button from '../../components/Button';
+import Socials from '../../components/Socials';
 import 'boxicons';
 
 const Home = () => {
@@ -23,7 +24,7 @@ const Home = () => {
     const verifyOrder = inputOrder => {
         if (inputOrder.length > 4) return true;
         else {
-            order.current.style.backgroundColor = 'rgba(255, 110, 110, 0.25)';
+            order.current.style.backgroundColor = '#ff6e6e3f';
             return false;
         }
     };
@@ -31,7 +32,7 @@ const Home = () => {
     const verifyClient = inputClient => {
         if (inputClient.length > 2 && isNaN(inputClient)) return true;
         else {
-            client.current.style.backgroundColor = 'rgba(255, 110, 110, 0.25)';
+            client.current.style.backgroundColor = '#ff6e6e3f';
             return false;
         }
     };
@@ -51,7 +52,8 @@ const Home = () => {
 
     return (
         <MainContainer>
-            <Image alt="CodeBurger Logo Image" />
+            <Socials />
+            <Image alt="CodeBurger Logo Image" style={{ margin: '0 -50px' }} />
             <Section>
                 <Title>Faça seu pedido!</Title>
                 <div>
@@ -60,7 +62,7 @@ const Home = () => {
                         ref={order}
                         placeholder="1 Coca-Cola, 1 X-Salada"
                         onFocus={() => {
-                            order.current.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
+                            order.current.style.backgroundColor = '#333';
                         }}
                     />
                     <box-icon name="knife" color="#d93856" style={{ position: 'absolute', right: '7px', top: '38px' }}></box-icon>
@@ -71,7 +73,7 @@ const Home = () => {
                         ref={client}
                         placeholder="Lucas"
                         onFocus={() => {
-                            client.current.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
+                            client.current.style.backgroundColor = '#333';
                         }}
                     />
                     <box-icon name="user" type="solid" color="#d93856" style={{ position: 'absolute', right: '7px', top: '38px' }}></box-icon>

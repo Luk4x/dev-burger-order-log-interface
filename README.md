@@ -21,8 +21,7 @@
   <img src="https://user-images.githubusercontent.com/86276393/178603195-36a116d4-008c-4c27-8f21-127f376c1944.png" alt="project preview"/>
 </p>
 
-> Acesso o projeto [AQUI](https://luk4x-codeburgerv1.netlify.app/)
-<br>
+> Acesso o projeto [AQUI](https://luk4x-codeburgerv1.netlify.app/) > <br>
 
 ## Sobre
 
@@ -37,6 +36,7 @@ Ele é composto por 2 páginas:
 -   [ReactJS](https://pt-br.reactjs.org)
 -   [React Router](https://reactrouter.com/docs/en/v6/getting-started/overview)
 -   [Styled-Components](https://styled-components.com)
+-   [Bootstrap](https://getbootstrap.com/), [React-Bootstrap](https://react-bootstrap.github.io/)
 -   [BoxIcons](https://boxicons.com/)
 -   [Axios](https://axios-http.com/docs/intro)
 

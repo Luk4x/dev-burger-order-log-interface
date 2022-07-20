@@ -7,12 +7,13 @@ import MainContainer from '../../components/MainContainer';
 import Image from '../../components/Image';
 import Title from '../../components/Title';
 import Button from '../../components/Button';
+import Socials from '../../components/Socials';
 import 'boxicons';
 
-import Popover from 'react-bootstrap/Popover';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import Popover from 'react-bootstrap/Popover';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
@@ -21,22 +22,8 @@ const Orders = () => {
     const [popoverHeaderBorderRight, setPopoverHeaderBorderRight] = useState(0);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        (async () => {
-            const { data: ordersData } = await axios.get(`${import.meta.env.VITE_BASE_URL}/order`);
-            setOrders(ordersData);
-        })();
-    }, []);
-
-    const deleteOrder = async id => {
-        await axios.delete(`${import.meta.env.VITE_BASE_URL}/order/${id}`);
-
-        const newOrders = orders.filter(order => order.id !== id);
-        setOrders(newOrders);
-    };
-
-    onresize = () => {
-        if (window.innerWidth < 570) {
+    const orderStatusResponsiveness = () => {
+        if ((window.innerWidth < 1150 && window.innerWidth > 758) || window.innerWidth < 570) {
             setPopoverPlacement('left-start');
             setPopoverHeaderBorderLeft('10px');
             setPopoverHeaderBorderRight(0);
@@ -47,9 +34,28 @@ const Orders = () => {
         }
     };
 
+    useEffect(() => {
+        (async () => {
+            const { data: ordersData } = await axios.get(`${import.meta.env.VITE_BASE_URL}/order`);
+            setOrders(ordersData);
+        })();
+
+        orderStatusResponsiveness();
+    }, []);
+
+    onresize = () => orderStatusResponsiveness();
+
+    const deleteOrder = async id => {
+        await axios.delete(`${import.meta.env.VITE_BASE_URL}/order/${id}`);
+
+        const newOrders = orders.filter(order => order.id !== id);
+        setOrders(newOrders);
+    };
+
     return (
         <MainContainer>
-            <Image img2={true} alt="CodeBurger Package" />
+            <Socials />
+            <Image img2={true} alt="CodeBurger Package" style={{ margin: '-40px 0' }} />
             <Section>
                 <Title>Pedidos</Title>
                 <OrdersList>
@@ -84,19 +90,6 @@ const Orders = () => {
 
                             message = 'pode levá-lo!';
                         }
-
-                        // let popoverPlacement = '';
-                        // let popoverHeaderStyle = {};
-                        // let popoverBodyStyle = {};
-                        // if (window.innerWidth < 570) {
-                        //     popoverPlacement = 'left-start';
-                        //     popoverHeaderStyle = { borderTopRightRadius: '0', background: state.color, color: '#eeeeee', padding: '5px 10px', fontSize: '15px', fontWeight: '300' };
-                        //     popoverBodyStyle = { background: '#222', color: 'gray', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', padding: '5px 10px', fontSize: '14px' };
-                        // } else {
-                        //     popoverPlacement = 'right-start';
-                        //     popoverHeaderStyle = { borderTopLeftRadius: '0', background: state.color, color: '#eeeeee', padding: '5px 10px', fontSize: '15px', fontWeight: '300' };
-                        //     popoverBodyStyle = { background: '#222', color: 'gray', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', padding: '5px 10px', fontSize: '14px' };
-                        // }
 
                         return (
                             <Order key={order.id}>
