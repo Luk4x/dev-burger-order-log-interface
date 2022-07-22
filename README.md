@@ -26,7 +26,7 @@ Esse projeto é uma Interface Mobile-First que realiza o cadastro de pedidos de 
 Ele é composto por 2 páginas:
 
 -   A primeira realiza o cadastro dos pedidos validados pelas verificações.
--   A segunda lista os pedidos já cadastrados e também informa seus respectivos status e preços.
+-   A segunda lista os pedidos já cadastrados e também informa seus respectivos status (com um tempo de preparação aleatório entre `5` à `40` segundos) e preço (gerado a partir da quantidade de caracteres do pedido + um valor aleatório entre `1` à `50`).
 
 ## 🚀 Tecnologias utilizadas
 

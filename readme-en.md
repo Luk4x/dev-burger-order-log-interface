@@ -26,7 +26,7 @@ This project is an Mobile-First Interface that performs the registration of orde
 It consists in 2 pages:
 
 -   The first performs the registration of orders validated by the checks.
--   The second lists the orders already registered and also informs their respective status and prices.
+-   The second lists the orders already registered and also informs their respective status (with a random preparation time between `5` to `40` seconds) and price (generated from the number of characters in the order + a random value between `1` to `50`).
 
 ## 🚀 Technologies used
 
