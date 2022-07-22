@@ -13,6 +13,7 @@ export const Section = styled.section`
 export const OrdersList = styled.ul`
     list-style-type: none;
     width: 100%;
+    max-height: 430px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,6 +21,7 @@ export const OrdersList = styled.ul`
     gap: 10px;
     margin: 0;
     padding: 0;
+    overflow-x: auto;
 `;
 
 export const Order = styled.li`

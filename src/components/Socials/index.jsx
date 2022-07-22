@@ -57,8 +57,8 @@ const Socials = () => {
                         navigator.clipboard.writeText('Luk4x#5068');
                     }}
                     onMouseEnter={() => {
-                        setDiscordText('Copy');
-                        setDiscordIcon(<box-icon name="clipboard" color="#6b6b6b" style={{ marginLeft: '-5px' }}></box-icon>);
+                        setDiscordText('Copiar');
+                        setDiscordIcon(<box-icon name="clipboard" color="#6b6b6b"></box-icon>);
                     }}
                     onMouseLeave={() => {
                         setDiscordText('Luk4x#5068');
@@ -66,9 +66,9 @@ const Socials = () => {
                     }}
                 >
                     <box-icon name="discord-alt" type="logo" color="#545fef"></box-icon>
-                    <>
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '3px', color: 'gray' }}>
                         {discordText} {discordIcon}
-                    </>
+                    </div>
                 </Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>

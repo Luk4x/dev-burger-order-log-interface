@@ -65,7 +65,7 @@ const Home = () => {
                             order.current.style.backgroundColor = '#333';
                         }}
                     />
-                    <box-icon name="knife" color="#d93856" style={{ position: 'absolute', right: '7px', top: '38px' }}></box-icon>
+                    <box-icon name="food-menu" type="solid" color="#d93856" style={{ position: 'absolute', right: '7px', top: '38px' }}></box-icon>
                 </div>
                 <div>
                     <P>Nome do Cliente</P>

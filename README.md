@@ -1,5 +1,3 @@
-# ⚠️ !Projeto em construção! ⚠️
-
 <table align="right">
   <tr>
     <td>
@@ -14,33 +12,32 @@
 </table>
 <br>
 
-# CodeBurger V1 Interface
+# 🍔 CodeBurger V1 Interface
 
 <p align="center">
-  <!-- <video src=""> -->
-  <img src="https://user-images.githubusercontent.com/86276393/178603195-36a116d4-008c-4c27-8f21-127f376c1944.png" alt="project preview"/>
+  <video src="https://user-images.githubusercontent.com/86276393/180319426-feca2803-6fe7-4480-a151-6ccf7daafd1f.mp4">
 </p>
 
-> Acesso o projeto [AQUI](https://luk4x-codeburgerv1.netlify.app/) > <br>
+> Acesso o projeto [AQUI](https://luk4x-codeburgerv1.netlify.app/) <br>
 
-## Sobre
+## 📝 Sobre
 
 Esse projeto é uma Interface Mobile-First que realiza o cadastro de pedidos de uma hamburgueria, consumindo a [API](https://github.com/Luk4x/dev-burger-order-log-API) que construí.<br>
 Ele é composto por 2 páginas:
 
 -   A primeira realiza o cadastro dos pedidos validados pelas verificações.
--   A segunda lista os pedidos já cadastrados.
+-   A segunda lista os pedidos já cadastrados e também informa seus respectivos status (com um tempo de preparação aleatório entre `5` à `40` segundos) e preço (gerado a partir da quantidade de caracteres do pedido + um valor aleatório entre `1` à `50`).
 
-## Tecnologias utilizadas
+## 🚀 Tecnologias utilizadas
 
 -   [ReactJS](https://pt-br.reactjs.org)
 -   [React Router](https://reactrouter.com/docs/en/v6/getting-started/overview)
 -   [Styled-Components](https://styled-components.com)
--   [Bootstrap](https://getbootstrap.com/), [React-Bootstrap](https://react-bootstrap.github.io/)
+-   [Bootstrap](https://getbootstrap.com/) / [React-Bootstrap](https://react-bootstrap.github.io/)
 -   [BoxIcons](https://boxicons.com/)
 -   [Axios](https://axios-http.com/docs/intro)
 
-## Como usar
+## 📖 Como usar
 
 Para clonar e executar este projeto, você precisará do [Git](https://git-scm.com/), [Node.js v16.13.2](https://nodejs.org/en/) ou superior e [Yarn](https://yarnpkg.com/) instalados em seu computador.<br>No terminal:
 
@@ -60,7 +57,7 @@ $ yarn dev
 # O servidor irá iniciar em http://localhost:3000/.
 ```
 
-## Contributor Contact
+## 🤝 Contributor Contact
 
 <table>
   <tr>
