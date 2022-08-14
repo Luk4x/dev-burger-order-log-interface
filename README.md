@@ -57,7 +57,7 @@ $ yarn dev
 # O servidor irá iniciar em http://localhost:3000/.
 ```
 
-## 🤝 Contributor Contact
+## 🤝 Contato dos Contribuintes
 
 <table>
   <tr>
