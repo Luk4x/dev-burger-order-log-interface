@@ -38,7 +38,7 @@
 
 ## 📝 Sobre
 
-Esse projeto é uma Interface Mobile-First do **CodeBurger**, um sistema que realiza o cadastro e a gerência de pedidos de uma hamburgueria. Os pedidos ficam armazenados em sua [API](https://github.com/Luk4x/dev-burger-order-log-API) que desenvolvi essencialmente com ExpressJS.
+Esse projeto é a Interface Mobile-First do **CodeBurger**, uma aplicação Web que realiza o cadastro e a gerência de pedidos de uma hamburgueria. Os pedidos ficam armazenados em sua [API](https://github.com/Luk4x/dev-burger-order-log-API) que desenvolvi essencialmente com ExpressJS.
 
 ### 📄 Páginas
 
@@ -51,7 +51,11 @@ O projeto é composto por 2 componentes de páginas, sendo eles:
 
 Fora os componentes de Rotas (**Routes**), estilos globais (**GlobalStyles**) e Root (**main**), o projeto conta com mais 5 componentes que são reaproveitados em ambas as páginas, sendo eles:
 
-- **Title**: Esse componente é renderizado no **main** do projeto, e reaproveitado em todas as páginas. Ele é relativo a barra de navegação presente em todas as páginas.
+- **Socials**: Esse componente é relativo ao botão que lista minhas redes sociais.
+- **MainContainer**: Esse componente é relativo ao container que abriga as informações dos pedidos.
+- **Image**: Esse componente é relativo às imagens de _Logo_ e _Embalagem_ do CodeBurger.
+- **Button**: Esse componente é relativo aos botões de _Pedir_ e _Voltar_.
+- **Title**: Esse componente é relativo aos títulos do **MainContainer**.
 
 ## 📖 Como usar
 
