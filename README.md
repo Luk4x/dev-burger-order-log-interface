@@ -12,21 +12,15 @@
 </table>
 <br>
 
-# 🍔 CodeBurger V1 Interface
+# 🍔 CodeBurger Project Interface
 
-<p align="center">
+## 📹 Apresentação em Vídeo do Projeto
+<div align="center">
   <video src="https://user-images.githubusercontent.com/86276393/180319426-feca2803-6fe7-4480-a151-6ccf7daafd1f.mp4">
-</p>
+</div>
 
-> Acesso o projeto [AQUI](https://luk4x-codeburgerv1.netlify.app/) <br>
-
-## 📝 Sobre
-
-Esse projeto é uma Interface Mobile-First que realiza o cadastro de pedidos de uma hamburgueria, consumindo a [API](https://github.com/Luk4x/dev-burger-order-log-API) que construí.<br>
-Ele é composto por 2 páginas:
-
--   A primeira realiza o cadastro dos pedidos validados pelas verificações.
--   A segunda lista os pedidos já cadastrados e também informa seus respectivos status (com um tempo de preparação aleatório entre `5` à `40` segundos) e preço (gerado a partir da quantidade de caracteres do pedido + um valor aleatório entre `1` à `50`).
+> **Caso o vídeo apresente algum erro, recarregue a página!**<br>
+> Acesse o projeto online **[AQUI](https://luk4x-codeburgerv1.netlify.app/)**
 
 ## 🚀 Tecnologias utilizadas
 
@@ -36,6 +30,28 @@ Ele é composto por 2 páginas:
 -   [Bootstrap](https://getbootstrap.com/) / [React-Bootstrap](https://react-bootstrap.github.io/)
 -   [BoxIcons](https://boxicons.com/)
 -   [Axios](https://axios-http.com/docs/intro)
+-   [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+-   [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+-   [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+-   [ViteJS](https://vitejs.dev/)
+-   [Yarn](https://yarnpkg.com/)
+
+## 📝 Sobre
+
+Esse projeto é uma Interface Mobile-First do **CodeBurger**, um sistema que realiza o cadastro e a gerência de pedidos de uma hamburgueria. Os pedidos ficam armazenados em sua [API](https://github.com/Luk4x/dev-burger-order-log-API) que desenvolvi essencialmente com ExpressJS.
+
+### 📄 Páginas
+
+O projeto é composto por 2 componentes de páginas, sendo eles:
+
+  - **Home**: Além de ser a página inicial do CodeBurger, ela responsável por realizar o cadastro dos pedidos validados pelas verificações na API.
+  - **Orders**: Essa página é responsável por listar os pedidos já cadastrados na API, e também informa seus respectivos status (com um tempo de preparação aleatório entre `5` à `40` segundos) e preço (gerado a partir da quantidade de caracteres do pedido + um valor aleatório entre `1` à `50`).
+
+### 📑 Demais Componentes
+
+Fora os componentes de Rotas (**Routes**), estilos globais (**GlobalStyles**) e Root (**main**), o projeto conta com mais 5 componentes que são reaproveitados em ambas as páginas, sendo eles:
+
+- **Title**: Esse componente é renderizado no **main** do projeto, e reaproveitado em todas as páginas. Ele é relativo a barra de navegação presente em todas as páginas.
 
 ## 📖 Como usar
 
