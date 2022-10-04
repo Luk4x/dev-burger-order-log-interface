@@ -50,6 +50,8 @@
 
 ## 📝 Sobre
 
+> Assistir o vídeo acima e/ou acessar o projeto online ajudará na compreensão da explicação!
+
 Esse projeto é a Interface Mobile-First do **CodeBurger**, uma aplicação Web que realiza o cadastro e a gerência de pedidos de uma hamburgueria. Os pedidos ficam armazenados em sua [API](https://github.com/Luk4x/dev-burger-order-log-API) que desenvolvi essencialmente com ExpressJS.
 
 ### 📄 Páginas
@@ -106,3 +108,7 @@ Feito esses dois passos, no terminal:
     </td>
   </tr>
 </table>
+
+<p align="right">
+  <a href="#-codeburger-project-interface">Voltar ao Topo</a>
+</p>
