@@ -96,17 +96,38 @@ After these two steps, in the terminal:
 
 ## 🤝 Contributor Contact
 
-<table>
+<table border="2">
   <tr>
     <td align="center">
-      <a href="https://www.linkedin.com/in/lucasmacielf/">
-        <img src="https://avatars.githubusercontent.com/Luk4x" width="150px;" alt="Luk4x Github Photo"/><br>
-        <sub>
-          <b>Lucas Maciel</b>
-        </sub>
-      </a>
-    </td>
-  </tr>
+      <details>
+        <summary>
+          <b><a href="https://cursos.alura.com.br/vitrinedev/lucasmacielf">Vitrine.Dev</a> 🪟</b>
+          <table>
+            <tr>
+              <td align="center">
+                <a href="https://github.com/Luk4x">
+                  <img src="https://avatars.githubusercontent.com/Luk4x" width="150px;" alt="Luk4x Github Photo"/>
+                </a>
+                <br>
+                <a href="https://www.linkedin.com/in/lucasmacielf/">
+                  <sub>
+                    <b>Lucas Maciel</b>
+                  </sub>
+                </a>
+              </td>
+            </tr>
+          </table>
+        </summary>
+
+| :placard: Vitrine.Dev | Lucas Maciel |
+| -------------  | --- |
+| :sparkles: Name        | **🍔 CodeBurger Interface**
+| :label: Technologies | reactjs, bootstrap, styled-components, axios, javascript, react router, boxicons, vitejs, css, html, yarn
+| :camera: Img         | <img src="https://user-images.githubusercontent.com/86276393/202928703-e01cdfd2-d1a0-4e58-829f-c207fcee7381.png#vitrinedev" alt="vitrine.dev thumb" width="100%"/>
+
+</details>
+</td>
+</tr>
 </table>
 
 <p align="right">
